@@ -1,0 +1,466 @@
+@font-face { font-family: 'ridi'; src: url('../res/font/RIDIBatang.woff') format('woff');}
+@font-face { font-family: '고딕l'; src: url('../res/font/a고딕10.ttf') format('ttf');}
+@font-face { font-family: '고딕13'; src: url('../res/font/a고딕13.ttf') format('ttf');}
+@font-face { font-family: '고딕m'; src: url('../res/font/a고딕15.ttf') format('ttf');}
+@font-face { font-family: '고딕17'; src: url('../res/font/a고딕17.ttf') format('ttf');}
+@font-face { font-family: '고딕b'; src: url('../res/font/a고딕19.ttf') format('ttf');}
+
+html, body {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+* {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  outline: none;
+  color: var(--black);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  transition: all 150ms;
+}
+
+body {
+  width: 100%; height: 100%; margin: 0; background: var(--white);
+}
+
+:root {
+  width: 100%; height: 100%; margin: 0; background: var(--white);
+}
+
+/* .back-dark {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  background: black; opacity: 0.25;
+  z-index: 99;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes disappear-dark {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+} */
+
+.ui-list {
+  position: fixed; right: 10px; bottom: 10px;
+}
+
+/* .ui-list object {
+  margin: 5px;
+  padding: 10px;
+  width: 35px;
+  background: var(--white);
+} */
+
+.ui-list div {
+  height: 80px;
+  background: gray;
+  width: 10px;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.new-profile {
+  background: var(--white);
+  position: fixed;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 360px;
+  height: calc(100% - 100px);
+  padding: 20px;
+  /* border: var(--light-gray) solid 2px; */
+  border-radius: 10px;
+  z-index: 100;
+  transition: all 300ms;
+  /* box-shadow: 0px 3px 5px var(--light-gray); */
+}
+
+.new-profile .title {
+  font-size: 30px;
+  color: var(--dark-gray);
+  font-family: '고딕13';
+  text-align: center;
+  margin: 20px 20px 26px 20px;
+}
+
+.new-profile .list {
+  text-align: center;
+  overflow: visible;
+}
+
+.new-profile .list div {
+  display: inline-block;
+  color: gray;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 99px;
+  font-family: 'ridi';
+  cursor: pointer;
+  transition: all 150ms;
+  margin: 2px 99px;
+}
+
+.new-profile .list .not-selected:hover {
+  background: var(--light-gray);
+  padding: 6px 14px;
+}
+
+.new-profile .list .selected {
+  color: var(--white);
+  padding: 6px 16px;
+  /* border-radius: 5px; */
+}
+
+.new-profile .okay{
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  /* background: #a4a2d2; */
+  background: #da9eb2;
+  transition: all 200ms;
+  position: absolute; left: 50%; transform: translateX(-50%); bottom: 32px;
+  cursor: pointer;
+  font-family: 고딕m;
+  color: var(--white);
+}
+
+.new-profile .okay:hover {
+  letter-spacing: 1px;
+  background: #c27d94;
+  /* background: #8a88b3; */
+}
+
+.description {
+  max-height: 300px;
+  background: var(--white);
+  border: 2px solid gray;
+  box-shadow: 0 2px 2px #00000020;
+  color: gray;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 12px;
+  font-family: '고딕m';
+  position: absolute;
+  z-index: 99;
+  display: none;
+}
+
+.right-setting {
+  font-size: 11px;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  position: absolute;
+  z-index: 999;
+  color: var(--dark-gray);
+  display: none;
+  font-family: 'ridi';
+  width: 150px;
+}
+
+.right-setting p {
+  margin: 0;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.right-setting p:hover {
+  background: var(--light-gray);
+}
+
+.space {
+  position: absolute;
+  left: 13px; top: 8px;
+  width: calc(100% - 20px);
+  height: calc(100% - 8px);
+}
+
+.space .log {
+  padding: 12px 18px;
+  transition: none;
+}
+
+.space .log .content {
+  font-family: 'ridi';
+  color: var(--dark-gray);
+  font-size: 17px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  line-height: 27px; 
+  /* line-height: 10px */
+}
+
+.space .log .date-info {
+  font-family: 'ridi';
+  color: gray;
+  font-size: 10px;
+}
+
+.hide-top-part {
+  position: absolute;
+  left: 0px; top: 0px; background: var(--white);
+  width: 100%; height: 20px;
+  z-index: 99;
+}
+
+.log .hashtag {
+  color: #8896b3;
+  cursor: pointer;
+}
+
+.log .hashtag:hover {
+  text-decoration: underline;
+}
+
+.info {
+  position: fixed; top: 0px; right: -208px;
+  z-index: 100; 
+  width: 210px; height: 100%;
+  transition: all 200ms;
+  background: var(--white);
+}
+
+.info .setting {
+  width: 20px;
+  position: absolute;
+  right: 28px; top: 20px;
+}
+
+#Capa_1 {
+  cursor: pointer;
+  fill: var(--dark-gray);
+}
+
+.info .health-back, .info .mana-back, .info .health-bar, .info .mana-bar {
+  position: absolute; left: 15px;
+  height: 20px;
+  background: var(--light-gray);
+  width: 160px;
+  overflow: hidden;
+}
+
+.info .health-back .health-bar, .info .mana-back .mana-bar {
+  position: absolute; left: 0; top: 0;
+  transition: all 200ms;
+}
+
+.info .health-back {
+  border-radius: 99px;
+  left: 25px;
+  top: 55px;
+}
+
+.info .mana-back {
+  border-radius: 99px;
+  left: 25px;
+  top: 85px;
+}
+
+.info .health-bar {
+  background: #da9eb2;
+}
+
+.info .mana-bar {
+  background: #a4a2d2;
+}
+
+.info .buff {
+  position: absolute;
+  left: 24px;
+  top: 114px;
+}
+
+.info .buff .icon {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  float: left;
+  border-radius: 6px;
+  background: gray;
+  margin: 1px;
+  transition: all 100ms;
+}
+
+.info .buff .icon:hover {
+  width: 18px;
+  background: gray;
+}
+
+.stat-table {
+  position: absolute;
+  left: 25px;
+  bottom: 40px;
+  width: 160px;
+}
+
+.stat-table td {
+  line-height: 20px;
+  font-size: 13px;
+  font-family: 'ridi';
+  color: var(--dark-gray);
+}
+
+.info .gold {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'ridi';
+  letter-spacing: 2px;
+  color: var(--white);
+  position: absolute;
+  right: 25px;
+  bottom: 10px;
+  background: var(--dark-gray);
+  padding: 5px;
+  width: calc(100% - 60px);
+}
+
+.info .gold::after {
+  letter-spacing: 1px;
+  content: '골드';
+}
+
+.stat-table .stat {
+  font-weight: 700;
+}
+
+.stat-table .amount {
+  text-align: right;
+}
+
+.choice-list {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  transition: all 200ms;
+}
+
+.choice-list div {
+  border-radius: 99px;
+  font-size: 16px;
+  padding: 8px 14px;
+  border: 2px solid var(--dark-gray);
+  font-family: 'ridi';
+  cursor: pointer;
+  transition: all 200ms;
+  font-weight: 600;
+  color: var(--dark-gray);
+  float: right;
+  margin-left: 5px;
+  background: var(--white);
+}
+
+.choice-list div:hover {
+  color: var(--white);
+  letter-spacing: 1px;
+  background: var(--dark-gray);
+}
+
+.button {
+  position: absolute;
+  width: 146px;
+  font-size: 13px;
+  padding: 5px;
+  font-family: 'ridi';
+  text-align: center;
+  background: var(--white);
+  color: var(--dark-gray);
+  border: 2px solid var(--dark-gray);
+  border-radius: 99px;
+  left: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.inventory {
+  position: absolute;
+  background: var(--white);
+  width: 190px;
+  height: calc(100% - 100px);
+  right: -210px;
+  top: 0px;
+  z-index: 100;
+  transition: all 200ms;
+  padding: 50px 0px;
+  text-align: center;
+  font-family: 'ridi';
+  color: var(--dark-gray);
+  /* font-weight: bold; */
+  font-size: 13px;
+}
+
+.inventory p {
+  transition: all 150ms;
+  padding: 2px;
+  margin: 2px;
+}
+
+.inventory p:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.inventory .equip {
+  font-weight: bold;
+}
+
+.exp {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 2px;
+  background: var(--dark-gray);
+  z-index: 999;
+  transition: all 150ms;
+  transition-timing-function: ease-out;
+}
+
+.show-inventory {
+  top: 138px
+}
+
+.button:hover {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+
+.button-pressed {
+  position: absolute;
+  width: 146px;
+  font-size: 13px;
+  padding: 5px;
+  font-family: 'ridi';
+  text-align: center;
+  background: var(--dark-gray);
+  color: var(--white);
+  border: 2px solid var(--dark-gray);
+  border-radius: 99px;
+  left: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.caption {
+  padding: 7px;
+  font-size: 14px;
+  position: absolute;
+  left: 50%; bottom: 80px;
+  transform: translateX(-50%);
+  background: var(--dark-gray);
+  color: var(--white);
+  font-family: '고딕m';
+  display: none;
+  z-index: 999;
+  text-align: center;
+}
+
+.caption p {
+  font-family: '고딕17';
+  font-weight: bold;
+  color: var(--white);
+  margin: 5px;
+}
+
+/* 160px */

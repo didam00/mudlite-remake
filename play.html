@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+  <title>▶ 새 프로필 생성 중</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- <link rel="shortcut icon" href="res/favicon.ico"> -->
+  <script>
+    var data = new Object;
+    let game = {
+      date: [],
+      situation: 'home',
+      place: 'home',
+      block_tag: [],
+    }
+  </script>
+  <style>
+    :root {
+      --white: #f0f6f0;
+      --light-gray: #ccc;
+      --dark-gray: #222323;
+      --black: #0f090f;
+    }
+  </style>
+  <script src="js/main.js"></script>
+  <script src="data/situation.js"></script>
+  <script src="data/item.js"></script>
+  <script src="data/skill.js"></script>
+  <script src="data/entity.js"></script>
+  <script src="data/place.js"></script>
+  <script src="data/buff.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main-mobile.css">
+</head>
+<body>
+  <div class='exp'></div>
+  <div class="back-dark" style='display: block;'></div>
+  <div class='inventory'>
+    
+  </div>
+  <div class='info'>
+    <object data="res/ui/settings.svg" type="image/svg+xml" class='setting'></object>
+    <div class="health-back" onmousemove="if(!make_list(me.buff).includes('무감각')) {caption('체력: '+Math.floor(me.health*100)/100)} else {caption('체력: ???')}">
+      <div class="health-bar" onmousemove="if(!make_list(me.buff).includes('무감각')) {caption('체력: '+Math.floor(me.health*100)/100)} else {caption('체력: ???')}"></div>
+    </div>
+    <div class="mana-back" onmousemove="caption('마나: '+Math.floor(me.mana*100)/100)">
+      <div class="mana-bar" onmousemove="caption('마나: '+Math.floor(me.mana*100)/100)"></div>
+    </div>
+    <div class='buff'></div>
+    <div class='show-inventory button'>인벤토리 열기</div>
+    <table class='stat-table'>
+      <tr class='health'><td class='stat'>최대 체력</td><td class='amount'></td></tr>
+      <tr class='mana'><td class='stat'>최대 마나</td><td class='amount'></td></tr>
+      <tr class='attack'><td class='stat'>공격력</td><td class='amount'></td></tr>
+      <tr class='attack_speed'><td class='stat'>공격속도</td><td class='amount'></td></tr>
+      <tr class='spell'><td class='stat'>주문력</td><td class='amount'></td></tr>
+      <tr class='def'><td class='stat'>방어력</td><td class='amount'></td></tr>
+      <tr class='reg'><td class='stat'>저항력</td><td class='amount'></td></tr>
+      <tr class='ignore_def'><td class='stat'>물리관통력</td><td class='amount'></td></tr>
+      <tr class='ignore_reg'><td class='stat'>마법관통력</td><td class='amount'></td></tr>
+      <!-- <tr class='speed'><td class='stat'>민첩성</td><td class='amount'></td></tr> -->
+      <tr class='critical'><td class='stat'>치명타률</td><td class='amount'></td></tr>
+      <tr class='block'><td class='stat'>완전방어</td><td class='amount'></td></tr>
+      <tr class='curse'><td class='stat'>저주</td><td class='amount'></td></tr>
+      <tr class='health_regen'><td class='stat'>체력 재생</td><td class='amount'></td></tr>
+      <tr class='mana_regen'><td class='stat'>마나 재생</td><td class='amount'></td></tr>
+      <tr class='speed'><td class='stat'>속도</td><td class='amount'></td></tr>
+    </table>
+    <div class='gold'>0</div>
+  </div>
+  <div class="new-profile">
+    <div class='title'>특징을 선택해주세요.</div>
+    <div class='list'>
+      
+    </div>
+    <div class="okay">0개의 저주와 함께..</div>
+  </div>
+  <div class="description">설명 테스트 중</div>
+  <div class='hide-top-part'></div>
+  <div class="space"></div>
+  <div class="choice-list"></div>
+  <div class='caption'></div>
+  <div class='right-setting'></div>
+
+  <div class='setting'></div>
+</body>
+</html>
