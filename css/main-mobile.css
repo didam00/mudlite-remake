@@ -3,6 +3,10 @@
     overflow: none;
   }
 
+  .space .log .content {
+    font-size: 18px;
+  }
+
   .new-profile {
     height: 100%;
   }
@@ -17,7 +21,46 @@
   }
 
   .new-profile .okay {
-    border-radius: 20px;
+    border-radius: 5px;
     margin-bottom: 30px;
+  }
+
+  .caption {
+    width: calc(100% - 40px);
+  }
+
+  .inventory {
+    width: 100%;
+    z-index: 101;
+    left: 100%;
+  }
+
+  .info {
+    width: 100%;
+    left: 100%;
+  }
+  
+  .info .health-back, .info .mana-back, .info .health-bar, .info .mana-bar, .show-inventory, .stat-table {
+    left: 50%; transform: translateX(-50%);
+    width: 160px;
+  }
+
+  .info .health-bar, .info .mana-bar {
+    left: 0px; transform: none;
+  }
+
+  .info .stat-table {
+    bottom: 80px;
+  }
+
+  .info .gold {
+    left: 50%; transform: translateX(-50%);
+    width: 160px;
+    bottom: 55px;
+  }
+  
+  .info .show-inventory:hover {
+    background: var(--white);
+    color: var(--dark-gray);
   }
 }

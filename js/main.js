@@ -9,6 +9,9 @@ var info = {
   ismobile: false,
 }
 
+var finger_move_x = 0;
+var finger_move_y = 0;
+
 var system = {
   version: '1.0.1',
 }
@@ -85,28 +88,55 @@ window.onload = function () {
 
   var toggle_tab = false;
 
-  $('.info').on('mouseover', function () {
-    if(!toggle_tab) {
-      $('.choice-list').css('right', '210px')
-      $('.info').css('right', '0px')
-    }
-  })
-  
-  $('.info').on('mouseout', function () {
-    if(!toggle_tab) {
-      $('.choice-list').css('right', '20px')
-      $('.info').css('right', '-208px')
-    }
-  })
+  info.ismobile = true;
+
+  if(info.ismobile) {
+    $('html').on('touchstart', function (event) {
+      finger_move_x = event.changedTouches[0].screenX;
+      finger_move_y = event.changedTouches[0].screenY;
+    })
+    $('html').on('touchend', function (event) {
+      finger_move_x -= event.changedTouches[0].screenX;
+      finger_move_y -= event.changedTouches[0].screenY;
+
+      if(finger_move_x > 40 && Math.abs(finger_move_y) < 20 && !toggle_tab) {
+        $('.info').css('left', '0px')
+      }
+      if(finger_move_x < -40 && Math.abs(finger_move_y) < 20 && !toggle_tab) {
+        $('.info').css('left', '100%')
+      }
+      if(finger_move_x < -40 && Math.abs(finger_move_y) < 20 && toggle_tab) {
+        $('.inventory').css('left', '100%')
+        toggle_tab = false;
+        $('.show-inventory').toggleClass('button')
+        $('.show-inventory').toggleClass('button-pressed')
+      }
+    })
+  } else {
+    $('.info').on('mouseover', function () {
+      if(!toggle_tab) {
+        $('.choice-list').css('right', '210px')
+        $('.info').css('right', '0px')
+      }
+    })
+    
+    $('.info').on('mouseout', function () {
+      if(!toggle_tab) {
+        $('.choice-list').css('right', '20px')
+        $('.info').css('right', '-208px')
+      }
+    })
+  }
+
   
   $('.show-inventory').on('click', function () {
     if($('.show-inventory').is('.button')) {
-      $('.inventory').css('right', '210px')
       $('.choice-list').css('right', '400px')
+      $('.inventory').css('left', '0px')
       toggle_tab = true
     } else {
       $('.choice-list').css('right', '210px')
-      $('.inventory').css('right', '-210px')
+      $('.inventory').css('left', '100%')
       toggle_tab = false
     }
     $('.show-inventory').toggleClass('button')
@@ -118,7 +148,7 @@ window.onload = function () {
     if(toggle_tab) {
       toggle_tab = false;
       $('.info').css('right', '-208px')
-      $('.inventory').css('right', '-210px')
+      $('.inventory').css('left', '0px')
       $('.choice-list').css('right', '20px')
       $('.show-inventory').toggleClass('button')
       $('.show-inventory').toggleClass('button-pressed')
