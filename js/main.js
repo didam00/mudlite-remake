@@ -13,7 +13,7 @@ var finger_move_x = 0;
 var finger_move_y = 0;
 
 var system = {
-  version: '1.0.2-2',
+  version: '1.0.2-3',
 }
 
 if ( navigator.platform ) {
@@ -129,11 +129,15 @@ window.onload = function () {
   
   $('.show-inventory').on('click', function () {
     if($('.show-inventory').is('.button')) {
-      $('.choice-list').css('right', '400px')
+      if(!system.ismobile) {
+        $('.choice-list').css('right', '400px')
+      }
       $('.inventory').css('left', '0px')
       toggle_tab = true
     } else {
-      $('.choice-list').css('right', '210px')
+      if(!system.ismobile) {
+        $('.choice-list').css('right', '210px')
+      }
       $('.inventory').css('left', '100%')
       toggle_tab = false
     }
