@@ -13,7 +13,7 @@ var finger_move_x = 0;
 var finger_move_y = 0;
 
 var system = {
-  version: '1.0.2',
+  version: '1.0.2-2',
 }
 
 if ( navigator.platform ) {
