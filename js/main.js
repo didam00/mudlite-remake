@@ -83,11 +83,11 @@ window.onload = function () {
 
   $('.info').on('mouseover', function () {
     if(!toggle_tab) {
-      $('.choice-list').css('right', '230px')
+      $('.choice-list').css('right', '210px')
       $('.info').css('right', '0px')
     }
   })
-
+  
   $('.info').on('mouseout', function () {
     if(!toggle_tab) {
       $('.choice-list').css('right', '20px')
@@ -98,9 +98,12 @@ window.onload = function () {
   $('.show-inventory').on('click', function () {
     if($('.show-inventory').is('.button')) {
       $('.inventory').css('right', '210px')
+      $('.choice-list').css('right', '400px')
       toggle_tab = true
     } else {
+      $('.choice-list').css('right', '210px')
       $('.inventory').css('right', '-210px')
+      toggle_tab = false
     }
     $('.show-inventory').toggleClass('button')
     $('.show-inventory').toggleClass('button-pressed')
@@ -832,8 +835,12 @@ function tick() {
       for(var i = 0; i<Object.keys(itemdata.stat).length; i++) {
         stat_text += '<br />'+Object.keys(itemdata.stat)[i]+': '+itemdata.stat[Object.keys(itemdata.stat)[i]]
       }
-      stat_text += '<br />내구도: '+itemdata.durability;
-      stat_text += '<br />견고: '+itemdata.firmness;
+      if(itemdata.hasOwnProperty('durability')) {
+        stat_text += '<br />내구도: '+itemdata.durability;
+      }
+      if(itemdata.hasOwnProperty('firmness')) {
+        stat_text += '<br />견고: '+itemdata.firmness;
+      }
     } else {
       for(var i = 0; i<Object.keys(itemdata.stat).length; i++) {
         stat_text += '<br />'+Object.keys(itemdata.stat)[i]+': '+itemdata.stat[Object.keys(itemdata.stat)[i]]
