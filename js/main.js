@@ -13,7 +13,7 @@ var finger_move_x = 0;
 var finger_move_y = 0;
 
 var system = {
-  version: '1.0.1',
+  version: '1.0.2',
 }
 
 if ( navigator.platform ) {
@@ -87,8 +87,6 @@ window.onload = function () {
   })
 
   var toggle_tab = false;
-
-  info.ismobile = true;
 
   if(info.ismobile) {
     $('html').on('touchstart', function (event) {
