@@ -9,6 +9,10 @@ var info = {
   ismobile: false,
 }
 
+var system = {
+  version: '1.0.1',
+}
+
 if ( navigator.platform ) {
   if ( "win16|win32|win64|mac|macintel".indexOf(navigator.platform.toLowerCase() ) < 0 ) {info.ismobile = true;}
 }
